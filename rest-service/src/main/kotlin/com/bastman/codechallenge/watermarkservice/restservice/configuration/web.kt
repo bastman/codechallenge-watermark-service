@@ -1,6 +1,5 @@
 package com.bastman.codechallenge.watermarkservice.restservice.configuration
 
-
 import io.undertow.Undertow
 import io.undertow.UndertowOptions
 import org.springframework.boot.context.embedded.undertow.UndertowBuilderCustomizer
@@ -17,7 +16,6 @@ import springfox.documentation.service.BasicAuth
 import springfox.documentation.spi.DocumentationType
 import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.swagger2.annotations.EnableSwagger2
-
 
 @Configuration
 open class RouterConfiguration {
@@ -53,16 +51,17 @@ open class SwaggerConfiguration {
         return Docket(DocumentationType.SWAGGER_2)
                 .groupName("watermark-service")
                 .apiInfo(apiInfo)
-                .select().apis(
-                RequestHandlerSelectors.basePackage(
-                        "${SpringConstants.BASE_PACKAGE}.api"
-                )
-        ).build()
+                .select()
+                .apis(
+                    RequestHandlerSelectors.basePackage(
+                            "${SpringConstants.BASE_PACKAGE}.api"
+                    )
+                ).build()
                 .securitySchemes(
-                        arrayListOf(
-                                // oauth(),
-                                BasicAuth("basic-auth-test")
-                        ))
+                    arrayListOf(
+                            BasicAuth("basic-auth-realm")
+                    )
+                )
     }
 }
 
@@ -82,11 +81,8 @@ open class UndertowServerConfiguration {
     }
 
     @Bean
-    open fun embeddedServletContainerFactory(): UndertowEmbeddedServletContainerFactory {
+    open fun embeddedServletContainerFactory(): UndertowEmbeddedServletContainerFactory =
+            UndertowEmbeddedServletContainerFactory().apply { addBuilderCustomizers(BuilderCustomizer()) }
 
-        return UndertowEmbeddedServletContainerFactory().apply {
-            addBuilderCustomizers(BuilderCustomizer())
-        }
-    }
 }
 
