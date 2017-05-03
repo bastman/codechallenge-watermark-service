@@ -1,30 +1,34 @@
 # Code Challenge: Watermark Service
 
-## run
+## Run
     $ ./gradlew bootRun
 
     ... and then open http://localhost:8080 in your browser
     
-## test
+## Test
     $ ./gradlew clean build test
   
-## api endpoints
+## Api Endpoints
     - POST /api/watermark-job/submit
     - GET /api/watermark-job/{ticketId}/status
     - GET /api/watermark-job/{ticketId}/download
     
-## modules
+## Gradle Modules
 - rest-service: contains spring-boot application
 - common: contains core domain logic (no dependency to spring)
+   
+## Coding flavour
+
+- (threadsafe) immutable data structures 
+- sealed class hierarchies
+- composition over inheritance
+- functional over classic oop-style
     
-## Features:
+## Features
 - spring boot, swagger-ui, undertow, jackson, caffeine, junit5
 - gradle-multimodule-project (common, rest-service)
     - the core domain logic resides in common-module
     - you may want to reuse core domain logic within different services/projects (e.g. a kafka-based pipeline) 
-- threadsafe immutable data structures 
-- sealed class hierarchies
-- composition over inheritance
 
 ### Testing
 - data-driven testing (junit5: @TestFactory)
@@ -43,9 +47,8 @@
     - application uses local in-memory-cache
     - there is no chance to re-process jobs (in case of failure/re-deploy)
     
-    => a kafka-based solution with dedicated microservices (api, job-processor) is preferable
-    
-- test coverage is just close to 100%
+    => a kafka-based solution with dedicated microservices (api, job-processor) is preferable for real-world deployments
+       
 - api's are not secured by any auth-strategy
 - submit-api currently does not check for having enough capacity to add new jobs
 - no request validation
