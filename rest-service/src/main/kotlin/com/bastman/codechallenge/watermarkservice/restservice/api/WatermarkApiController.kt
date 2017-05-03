@@ -22,7 +22,7 @@ open class WatermarkApiController(
     object ApiRoutes {
         const val PUBLICATION_SUBMIT = "/api/watermark-job/submit"
         const val DESCRIBE_JOB_STATUS = "/api/watermark-job/{${ApiRequestFields.TICKET_ID}}/status"
-        const val DOWNLOAD_WATERMARKED_PUBLICATION = "/api/watermark-job/{${ApiRequestFields.TICKET_ID}}/result"
+        const val DOWNLOAD_WATERMARKED_PUBLICATION = "/api/watermark-job/{${ApiRequestFields.TICKET_ID}}/download"
     }
 
     @RequestMapping(

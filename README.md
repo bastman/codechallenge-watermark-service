@@ -1,17 +1,21 @@
 # Code Challenge: Watermark Service
 
-## build & test
-    $ ./gradlew clean build test
-
 ## run
     $ ./gradlew bootRun
 
     ... and then open http://localhost:8080 in your browser
     
+## test
+    $ ./gradlew clean build test
+  
 ## api endpoints
     - POST /api/watermark-job/submit
     - GET /api/watermark-job/{ticketId}/status
-    - GET /api/watermark-job/{ticketId}/result
+    - GET /api/watermark-job/{ticketId}/download
+    
+## modules
+- rest-service: contains spring-boot application
+- common: contains core domain logic (no dependency to spring)
     
 ## Features:
 - spring boot, swagger-ui, undertow, jackson, caffeine, junit5
@@ -24,15 +28,15 @@
 
 ### Testing
 - junit5
-- JsonSchema-based api testing (see: https://jsonschema.net)
+- JsonSchema-based api testing (https://jsonschema.net)
 
 ### Concurrency
 - lightweight threading provided by kotlin coroutines, similar to ... 
-    - quasar fibers (see: https://github.com/puniverse/quasar)
-    - golang goroutines (see: https://www.golang-book.com/books/intro/10)
+    - quasar fibers (https://github.com/puniverse/quasar)
+    - golang goroutines (https://www.golang-book.com/books/intro/10)
 - threadsafe immutable data structures
 - immutable message passing via coroutine channels 
-    - similar to golang channels (see: https://gobyexample.com/channels)
+    - similar to golang channels (https://gobyexample.com/channels)
 
 
 ### Why Kotlin? Kotlin ...
