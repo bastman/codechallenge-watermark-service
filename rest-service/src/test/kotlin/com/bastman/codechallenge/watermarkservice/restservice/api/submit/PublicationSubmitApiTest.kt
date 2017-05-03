@@ -1,6 +1,7 @@
-package com.bastman.codechallenge.watermarkservice.restservice.api
+package com.bastman.codechallenge.watermarkservice.restservice.api.submit
 
 import com.bastman.codechallenge.watermarkservice.restservice.RestServiceApplication
+import com.bastman.codechallenge.watermarkservice.restservice.api.WatermarkApiController
 import com.bastman.codechallenge.watermarkservice.restservice.testutils.JsonCodec
 import com.bastman.codechallenge.watermarkservice.restservice.testutils.JsonSchemaValidator
 import com.bastman.codechallenge.watermarkservice.restservice.testutils.Junit5DynamicTestFactoryExtension

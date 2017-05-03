@@ -1,6 +1,7 @@
-package com.bastman.codechallenge.watermarkservice.restservice.api
+package com.bastman.codechallenge.watermarkservice.restservice.api.pipeline
 
 import com.bastman.codechallenge.watermarkservice.restservice.RestServiceApplication
+import com.bastman.codechallenge.watermarkservice.restservice.api.WatermarkApiController
 import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.status.DescribeJobStatusRequestHandler
 import com.bastman.codechallenge.watermarkservice.restservice.domain.service.WatermarkService
 import com.bastman.codechallenge.watermarkservice.restservice.testutils.JsonCodec
@@ -33,7 +34,7 @@ import javax.annotation.PostConstruct
 )
 @AutoConfigureMockMvc
 @Tag("fast")
-internal class ApiPipelineTest : Junit5DynamicTestFactoryExtension {
+internal class ApiPipelineIntegrationTest : Junit5DynamicTestFactoryExtension {
 
     @TestFactory
     fun apiTests() = apiTests.toList()
@@ -101,15 +102,17 @@ internal class ApiPipelineTest : Junit5DynamicTestFactoryExtension {
         apiTests.registerTest(
                 "test api's (submit->status->download): with requestBody provided by=${testCase.requestResource}", {
 
+            // (1) submit api
             val submitApiResponse = submitApi(testCase = testCase)
             val ticketId = submitApiResponse.ticketId
+            // (2.1) status api (immediately) - job might be pending/completed
             statusApi(ticketId = ticketId,
                     expectJobStatus = listOf(
                             WatermarkService.JobStatus.PENDING,
                             WatermarkService.JobStatus.COMPLETE
                     )
             )
-
+            // (2.2) status api delayed - job should be completed
             future {
                 delay(3, TimeUnit.SECONDS)
                 statusApi(
@@ -120,10 +123,10 @@ internal class ApiPipelineTest : Junit5DynamicTestFactoryExtension {
                 )
             }.get()
 
+            // (3) download api
             downloadApi(ticketId = ticketId, testCase = testCase)
 
-        }
-        )
+        })
     }
 
     private data class SubmitApiResponse(val ticketId: String)
@@ -203,6 +206,4 @@ internal class ApiPipelineTest : Junit5DynamicTestFactoryExtension {
 
         responseBodyGiven `should equal` responseBodyExpected
     }
-
-
 }
