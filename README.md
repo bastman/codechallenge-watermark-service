@@ -1,6 +1,6 @@
 # Code Challenge: Watermark Service
 
-- Note: their is a kafka-based implementation in progress: https://github.com/bastman/codechallenge-watermark-service-kafka
+- Note: there is a kafka-based implementation in progress: https://github.com/bastman/codechallenge-watermark-service-kafka
 
 ## Run
     $ ./gradlew bootRun
