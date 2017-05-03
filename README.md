@@ -27,8 +27,8 @@
 - composition over inheritance
 
 ### Testing
-- junit5
-- JsonSchema-based api testing (https://jsonschema.net)
+- data-driven testing (junit5: @TestFactory)
+- schema-based testing (https://jsonschema.net)
 
 ### Concurrency
 - lightweight threading provided by kotlin coroutines, similar to ... 
