@@ -38,8 +38,20 @@
 - immutable message passing via coroutine channels 
     - similar to golang channels (https://gobyexample.com/channels)
 
+## Drawbacks (Things that can be improved)
+- the solution provided will not scale horizontally, since:
+    - application uses local in-memory-cache
+    - there is no chance to re-process jobs (in case of failure/re-deploy)
+    
+    => a kafka-based solution with dedicated microservices (api, job-processor) is preferable
+    
+- test coverage is just close to 100%
+- api's are not secured by any auth-strategy
+- submit-api currently does not check for having enough capacity to add new jobs
+- no request validation
+- no proper exception handling
 
-### Why Kotlin? Kotlin ...
+## Why Kotlin? Kotlin ...
 - is like SWIFT (ios)
 - is like Scala, but easy to learn
 - is much more type safe than Java - No NullPointerException ;) 
