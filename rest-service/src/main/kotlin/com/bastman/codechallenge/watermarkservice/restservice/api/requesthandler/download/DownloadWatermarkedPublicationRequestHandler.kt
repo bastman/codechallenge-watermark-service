@@ -1,4 +1,4 @@
-package com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.watermark
+package com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.download
 
 import com.bastman.codechallenge.watermarkservice.domain.WatermarkedPublication
 import com.bastman.codechallenge.watermarkservice.restservice.domain.service.WatermarkService

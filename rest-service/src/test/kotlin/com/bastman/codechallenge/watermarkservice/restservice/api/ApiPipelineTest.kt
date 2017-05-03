@@ -1,7 +1,7 @@
 package com.bastman.codechallenge.watermarkservice.restservice.api
 
 import com.bastman.codechallenge.watermarkservice.restservice.RestServiceApplication
-import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.job.DescribeJobStatusRequestHandler
+import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.status.DescribeJobStatusRequestHandler
 import com.bastman.codechallenge.watermarkservice.restservice.domain.service.WatermarkService
 import com.bastman.codechallenge.watermarkservice.restservice.testutils.JsonCodec
 import com.bastman.codechallenge.watermarkservice.restservice.testutils.JsonSchemaValidator

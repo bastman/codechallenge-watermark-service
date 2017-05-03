@@ -1,8 +1,8 @@
 package com.bastman.codechallenge.watermarkservice.restservice.api
 
-import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.job.DescribeJobStatusRequestHandler
-import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.publication.SubmitPublicationRequestHandler
-import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.watermark.DownloadWatermarkedPublicationRequestHandler
+import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.download.DownloadWatermarkedPublicationRequestHandler
+import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.status.DescribeJobStatusRequestHandler
+import com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.submit.SubmitPublicationRequestHandler
 import io.swagger.annotations.ApiOperation
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*

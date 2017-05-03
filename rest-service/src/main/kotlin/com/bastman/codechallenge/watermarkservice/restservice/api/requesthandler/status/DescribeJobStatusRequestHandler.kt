@@ -1,4 +1,4 @@
-package com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.job
+package com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.status
 
 import com.bastman.codechallenge.watermarkservice.restservice.domain.service.WatermarkService
 import org.springframework.stereotype.Component

@@ -1,4 +1,4 @@
-package com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.publication
+package com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.submit
 
 import com.bastman.codechallenge.watermarkservice.domain.BookTopic
 import com.bastman.codechallenge.watermarkservice.domain.SourcePublication
