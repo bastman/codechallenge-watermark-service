@@ -1,5 +1,7 @@
 # Code Challenge: Watermark Service
 
+- Note: their is a kafka-based implementation in progress: https://github.com/bastman/codechallenge-watermark-service-kafka
+
 ## Run
     $ ./gradlew bootRun
 
@@ -48,6 +50,7 @@
     - there is no chance to re-process jobs (in case of failure/re-deploy)
     
     => a kafka-based solution with dedicated microservices (api, job-processor) is preferable for real-world deployments
+    => https://github.com/bastman/codechallenge-watermark-service-kafka
        
 - api's are not secured by any auth-strategy
 - submit-api currently does not check for having enough capacity to add new jobs
