@@ -1,0 +1,14 @@
+{
+  "publication": {
+    "title": "title-book-science",
+    "author": "author-book-science",
+    "content": "content-book-science",
+    "topic": "Science",
+    "watermark": {
+      "title": "title-book-science",
+      "author": "author-book-science",
+      "content": "content-book-science",
+      "topic": "Science"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+package com.bastman.codechallenge.watermarkservice.restservice.api.requesthandler.job
+
+import com.bastman.codechallenge.watermarkservice.restservice.domain.service.WatermarkService
+import org.springframework.stereotype.Component
+
+@Component
+class DescribeJobStatusRequestHandler(
+        private val watermarkService: WatermarkService
+) {
+
+    data class Request(val ticketId: String)
+    data class Response(val jobStatus: WatermarkService.JobStatus)
+
+    fun handleRequest(request: Request): Response = Response(jobStatus = describeJobStatus(request))
+
+    private fun describeJobStatus(request: Request) = watermarkService.describeJobStatus(
+            ticketId = request.ticketId
+    )
+}

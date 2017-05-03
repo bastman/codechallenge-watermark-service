@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.junit.platform:junit-platform-gradle-plugin:${junitPlatformVersion}")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+
+
+dependencies {
+    compile project(':common')
+
+    // spring-boot: core
+
+    //compile("org.springframework.boot:spring-boot-starter-actuator")
+    //compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "org.springframework.boot:spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-undertow")
+
+    // spring-boot: swagger
+    compile("io.springfox:springfox-swagger2:$swaggerVersion")
+    compile("io.springfox:springfox-swagger-ui:$swaggerVersion")
+
+    // cache: caffeine
+    compile("com.github.ben-manes.caffeine:caffeine:$caffeineVersion")
+
+    // test
+    testCompile project(':common')
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    // junit5-spring-extensions
+    testCompile('com.github.sbrannen:spring-test-junit5:1.0.0.M4')
+
+    // json-schema-validator
+    testCompile("com.github.fge:json-schema-validator:$jsonSchemaValidatorVersion")
+}
+
+
+

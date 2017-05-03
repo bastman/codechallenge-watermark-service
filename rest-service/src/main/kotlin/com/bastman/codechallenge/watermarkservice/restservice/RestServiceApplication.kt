@@ -1,0 +1,30 @@
+package com.bastman.codechallenge.watermarkservice.restservice
+
+import com.bastman.codechallenge.watermarkservice.restservice.domain.service.WatermarkService
+import org.springframework.boot.CommandLineRunner
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.builder.SpringApplicationBuilder
+import org.springframework.context.ConfigurableApplicationContext
+import org.springframework.context.annotation.Bean
+
+@SpringBootApplication
+open class RestServiceApplication {
+
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            SpringApplicationBuilder()
+                    .sources(RestServiceApplication::class.java)
+                    .web(true)
+                    .run(*args)
+
+            println("=== onApplicationIsReady =====")
+        }
+    }
+
+    @Bean
+    open fun init(ctx: ConfigurableApplicationContext, watermarkService: WatermarkService) = CommandLineRunner {
+        watermarkService.startWorking()
+    }
+
+}

@@ -1,0 +1,12 @@
+{
+  "publication": {
+    "title": "title-journal",
+    "author": "author-journal",
+    "content": "content-journal",
+    "watermark": {
+      "title": "title-journal",
+      "author": "author-journal",
+      "content": "content-journal"
+    }
+  }
+}

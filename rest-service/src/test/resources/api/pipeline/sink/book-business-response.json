@@ -1,0 +1,14 @@
+{
+  "publication": {
+    "title": "title-book-business",
+    "author": "author-book-business",
+    "content": "content-book-business",
+    "topic": "Business",
+    "watermark": {
+      "title": "title-book-business",
+      "author": "author-book-business",
+      "content": "content-book-business",
+      "topic": "Business"
+    }
+  }
+}

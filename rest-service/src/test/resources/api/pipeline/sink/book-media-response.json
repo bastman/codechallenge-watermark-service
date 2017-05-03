@@ -1,0 +1,14 @@
+{
+  "publication": {
+    "title": "title-book-media",
+    "author": "author-book-media",
+    "content": "content-book-media",
+    "topic": "Media",
+    "watermark": {
+      "title": "title-book-media",
+      "author": "author-book-media",
+      "content": "content-book-media",
+      "topic": "Media"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "http://example.com/example.json",
+  "additionalProperties": false,
+  "required": [
+    "publication"
+  ],
+  "properties": {
+    "publication": {
+      "additionalProperties": false,
+      "required": [
+        "author",
+        "content",
+        "title",
+        "topic"
+      ],
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "topic": {
+          "enum": [
+            "Science",
+            "Business",
+            "Media"
+          ]
+        },
+        "watermark": {
+          "additionalProperties": false,
+          "required": [
+            "author",
+            "content",
+            "title",
+            "topic"
+          ],
+          "properties": {
+            "author": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "topic": {
+              "enum": [
+                "Science",
+                "Business",
+                "Media"
+              ]
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}
